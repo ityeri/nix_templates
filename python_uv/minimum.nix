@@ -70,6 +70,10 @@
           pkgs = nixpkgs.legacyPackages.${system};
           pythonSet = pythonSets.${system}.overrideScope editableOverlay;
           virtualenv = pythonSet.mkVirtualEnv "python-env" workspace.deps.all;
+
+          runtimeLibs = with pkgs; [
+            # Required rumtime libraries
+          ];
         in
         {
           default = pkgs.mkShell {
